@@ -453,3 +453,57 @@ B.Tech – Computer Science & Engineering
 - Error Handling
 - Automated Testing
 - Incremental Data Processing
+
+
+## Data Quality
+
+The pipeline includes automated data quality checks covering:
+
+- Completeness
+- Uniqueness
+- Validity
+- Timeliness
+- Referential Integrity
+
+A composite Data Quality score is calculated from these checks.
+
+Run the Data Quality report:
+
+```bash
+python src/data_quality.py
+
+Completeness          : 100.00%
+Uniqueness            : 100.00%
+Validity              : 100.00%
+Timeliness            : 100.00%
+Referential Integrity : 100.00%
+Composite DQ Score    : 100.00%
+
+
+## Testing
+
+Run the complete test suite:
+
+```bash
+python -m pytest -v
+
+
+Database
+
+The project uses SQLite for local persistence.
+
+The database contains operational tables for:
+
+Leads
+Pipeline runs
+Pipeline state
+Dead-letter records
+
+The analytical layer uses a star-schema design with dimension and fact tables.
+
+The local SQLite database is intentionally excluded from GitHub through .gitignore.
+
+Security
+
+API credentials are stored in environment variables and are not committed to GitHub.
+
